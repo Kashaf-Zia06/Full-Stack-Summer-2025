@@ -1,6 +1,6 @@
 # Full-Stack-Summer-2025
 My personal learning journey through full-stack web development during Summer 2025, covering JavaScript, React, Node.js, and real-world projects.
-# 🚀 Full Stack Summer 2025 – Learning Journey
+
 
 Welcome to my full-stack development learning log for Summer 2025!  
 This repository tracks my daily and weekly progress as I master key concepts in JavaScript, React.js, Node.js, and MongoDB, while building hands-on projects.
