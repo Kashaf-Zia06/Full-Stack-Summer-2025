@@ -1,0 +1,146 @@
+============================================
+📘 JavaScript Callback Interview Q&A (Simplified)
+============================================
+
+✅ 1. What is a callback function?
+A callback is a function passed as an argument to another function, which is then executed after some task is completed.
+
+🧪 Example:
+function greet(name, callback) {
+    console.log("Hello " + name);
+    callback();
+}
+
+greet("Kashaf", () => {
+    console.log("This is a callback.");
+});
+
+
+✅ 2. Why do we use callbacks?
+Callbacks help run code **after another finishes**, especially for asynchronous tasks like API calls, timers, etc.
+
+
+✅ 3. What's the difference between synchronous and asynchronous callbacks?
+- **Synchronous callbacks** are executed immediately (e.g., `array.map()`).
+- **Asynchronous callbacks** execute later (e.g., `setTimeout()`).
+
+
+✅ 4. Can you pass arguments to a callback?
+Yes. You can pass arguments like any function.
+
+🧪 Example:
+function process(num, callback) {
+    callback(num * 2);
+}
+
+process(5, (result) => {
+    console.log(result); // 10
+});
+
+
+✅ 5. What is callback hell?
+It's a situation where callbacks are nested within callbacks, leading to messy, hard-to-read code.
+
+🧪 Example:
+login(() => {
+    getData(() => {
+        processData(() => {
+            showUI();
+        });
+    });
+});
+
+
+✅ 6. How to avoid callback hell?
+Use:
+- **Named functions**
+- **Promises**
+- **Async/await**
+- **Modularize** your code
+
+
+✅ 7. What's the difference between a callback and a Promise?
+- Callback: Function passed to handle async result
+- Promise: An object representing the eventual completion or failure
+
+🧪 Callback:
+loadData(() => {
+  console.log("done");
+});
+
+🧪 Promise:
+loadData().then(() => {
+  console.log("done");
+});
+
+
+✅ 8. Can arrow functions be used as callbacks?
+Yes, arrow functions are commonly used for short callbacks.
+
+🧪 Example:
+setTimeout(() => {
+  console.log("Callback done!");
+}, 1000);
+
+
+✅ 9. What is the Event Loop in relation to callbacks?
+The Event Loop is responsible for handling asynchronous callbacks by picking them from the **callback queue** and executing them on the **main thread** after the current stack is clear.
+
+
+✅ 10. What are the callback queue and microtask queue?
+- **Callback queue**: setTimeout, setInterval callbacks go here
+- **Microtask queue**: Promise `.then()`, `queueMicrotask()` go here and get priority
+
+
+✅ 11. How are callbacks related to closures?
+Callbacks often **retain access to variables in their outer function**, which is possible due to closures.
+
+🧪 Example:
+function outer() {
+  let count = 0;
+  return function inner() {
+    console.log(count++);
+  }
+}
+
+let cb = outer();
+cb(); // 0
+cb(); // 1
+
+
+✅ 12. What are some real-world examples of callbacks?
+- Button click handlers: `btn.addEventListener("click", callback)`
+- Timers: `setTimeout(callback, delay)`
+- Data fetching: `fetch(url).then(callback)`
+
+
+✅ 13. What if a callback has an error?
+If not handled, it could break the flow. Use **try-catch** in synchronous code or `.catch()` with Promises.
+
+
+✅ 14. Can you write your own custom callback?
+Yes.
+
+🧪 Example:
+function calculate(a, b, callback) {
+    const result = a + b;
+    callback(result);
+}
+
+calculate(5, 3, (res) => {
+    console.log("Result is:", res); // 8
+});
+
+
+✅ 15. Difference between callback and higher-order function?
+A **callback** is the function passed.
+A **higher-order function** is the one that receives the function.
+
+🧪 Example:
+map(), filter(), reduce() → all are higher-order functions
+
+
+============================================
+🔥 Bonus Tip:
+If you're using 3 or more nested callbacks — it's time to switch to Promises or async/await!
+============================================
