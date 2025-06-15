@@ -1,0 +1,107 @@
+body {
+    background: rgb(178, 230, 230);
+}
+
+
+#heading {
+    text-align: center;
+    font-family: cursive;
+    margin-top: 70px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.inp {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+
+#username {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#password {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#log {
+    padding: 10px;
+    width: 80px;
+    border-radius: 10px;
+    font-style: oblique;
+    font-weight: bold;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+}
+
+#log:hover {
+    cursor: pointer;
+}
+
+#sub {
+    padding: 10px;
+    width: 80px;
+    border-radius: 10px;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+#sub:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#loading{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#dashboard-head{
+    text-align: center;
+    font-family: cursive;
+    margin-top: 70px;
+}
+
+#hours{
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 150px;
+}
+
+#minutes{
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 150px;
+}
+
+#seconds{
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 150px;
+}
+
+#time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+}
