@@ -1,0 +1,129 @@
+
+📘 JavaScript Promises - Interview Questions and Answers (Beginner to Advanced)
+
+------------------------------------------------------------
+🔰 1. What is a Promise in JavaScript?
+A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+------------------------------------------------------------
+🔰 2. What are the three states of a Promise?
+- Pending: Initial state, neither fulfilled nor rejected.
+- Fulfilled: Operation completed successfully.
+- Rejected: Operation failed.
+
+------------------------------------------------------------
+🔰 3. What is the syntax to create a Promise?
+Example:
+const myPromise = new Promise((resolve, reject) => {
+  // async operation
+  resolve("Success"); // or reject("Error");
+});
+
+------------------------------------------------------------
+🔰 4. What is the use of .then() and .catch()?
+- `.then()` handles resolved (fulfilled) results.
+- `.catch()` handles errors (rejected Promises).
+
+------------------------------------------------------------
+🔰 5. How does Promise chaining work?
+Each `.then()` returns a new Promise, allowing you to chain further `.then()` calls for sequencing async actions.
+
+------------------------------------------------------------
+🔰 6. What is the difference between callbacks and Promises?
+- Callbacks can lead to "callback hell" (deep nesting).
+- Promises avoid nesting and offer better error handling and readability.
+
+------------------------------------------------------------
+🔰 7. How do you handle errors in Promise chains?
+Use `.catch()` at the end of a chain:
+```
+doTask()
+  .then(result => doNext(result))
+  .catch(error => console.error(error));
+```
+
+------------------------------------------------------------
+🔰 8. What is Promise.all()?
+Executes multiple Promises in parallel and waits for all to resolve. If any one fails, it rejects.
+```
+Promise.all([p1, p2]).then(res => {}).catch(err => {});
+```
+
+------------------------------------------------------------
+🔰 9. What is Promise.race()?
+Returns the result of the first Promise that resolves or rejects.
+```
+Promise.race([p1, p2]).then(res => {}).catch(err => {});
+```
+
+------------------------------------------------------------
+🔰 10. What is Promise.allSettled()?
+Waits for all Promises to settle (either resolve or reject), and returns an array of result objects.
+
+------------------------------------------------------------
+🔰 11. What is the purpose of async/await with Promises?
+`async/await` allows writing asynchronous code in a synchronous-like way. `await` pauses the function until the Promise settles.
+
+Example:
+```
+async function fetchData() {
+  try {
+    const data = await fetch(url);
+    console.log(await data.json());
+  } catch (e) {
+    console.log("Error:", e);
+  }
+}
+```
+
+------------------------------------------------------------
+🔰 12. What happens if both resolve and reject are called in a Promise?
+Only the first one (resolve or reject) has an effect. The Promise can only be settled once.
+
+------------------------------------------------------------
+🔰 13. What is a microtask in Promises?
+Promise callbacks (like `.then`) are scheduled as microtasks, which are executed before other macrotasks like `setTimeout`.
+
+------------------------------------------------------------
+🔰 14. Can we return a Promise inside another .then()?
+Yes. Returning a Promise inside `.then()` continues the chain and waits for the inner Promise to resolve.
+
+------------------------------------------------------------
+🔰 15. How do you cancel a Promise?
+Promises cannot be canceled directly. You must use a workaround (like AbortController in fetch) to simulate cancellation.
+
+------------------------------------------------------------
+🔰 16. What are some real-world examples of Promises?
+- Fetching data from an API (fetch)
+- Reading files using FileReader API
+- Geolocation API calls
+
+------------------------------------------------------------
+🔰 17. What is finally() in Promises?
+`.finally()` executes code after the Promise is settled, regardless of the outcome.
+
+Example:
+```
+fetchData()
+  .then(handleData)
+  .catch(handleError)
+  .finally(() => console.log("Done"));
+```
+
+------------------------------------------------------------
+🔰 18. How do Promises relate to the Event Loop?
+Promise resolution is queued as a microtask. After the current script and microtasks are completed, control returns to the event loop.
+
+------------------------------------------------------------
+🔰 19. Can Promises be nested? Is it good practice?
+Yes, but it’s better to chain them instead of nesting for readability and error handling.
+
+------------------------------------------------------------
+🔰 20. How do you debug Promises?
+- Use browser DevTools (network tab, async stack)
+- Add `.catch()` or try/catch for error visibility
+- Use `console.log()` statements in each `.then()`
+
+------------------------------------------------------------
+🎯 Summary:
+Mastering Promises is essential for managing asynchronous operations in JavaScript. Practice with `.then()`, `.catch()`, `Promise.all()`, and `async/await` for fluency.
