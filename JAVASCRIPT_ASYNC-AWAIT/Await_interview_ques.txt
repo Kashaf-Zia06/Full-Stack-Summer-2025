@@ -1,65 +1,51 @@
-**Interview Questions and Answers on **`**, **`**, and JavaScript's Event Loop (Beginner to Advanced)**
+
+Interview Questions and Answers on `async`, `await`, and JavaScript's Event Loop (Beginner to Advanced)
 
 ---
 
-### 1. **What is **\`\`** in JavaScript?**
-
+1. What is `async` in JavaScript?
 `async` is a keyword used before a function to declare it as asynchronous. An async function always returns a promise, even if it returns a value directly.
 
-### 2. **What is **\`\`** in JavaScript?**
-
+2. What is `await` in JavaScript?
 `await` can only be used inside an `async` function. It makes JavaScript wait for a promise to resolve and pauses execution of the async function.
 
-### 3. **What is the purpose of using **`** instead of **`**?**
+3. What is the purpose of using `async/await` instead of `.then()`?
+`async/await` provides a cleaner and more readable way to handle asynchronous code compared to chaining `.then()`.
 
-`async/await` provides a cleaner and more readable way to handle asynchronous code compared to the chaining of `.then()`.
+4. How does `await` work behind the scenes?
+`await` pauses the execution of the async function until the promise is resolved. The remaining code is executed after the promise resolves, similar to `.then()` but with synchronous-like flow.
 
-### 4. **How does **\`\`** work behind the scenes?**
+5. Can we use `await` outside an `async` function?
+No. `await` will throw a syntax error if used outside an `async` function, unless in modules or environments that support top-level `await`.
 
-`await` pauses the execution of the async function until the promise is resolved. The remaining code is executed after the promise resolves, similar to how `.then()` would work but in a synchronous-like flow.
+6. What happens when an async function throws an error?
+If an error is thrown inside an async function or a promise is rejected, the returned promise is rejected and can be caught using `.catch()` or `try...catch`.
 
-### 5. **Can we use **`** outside an **`** function?**
-
-No. `await` will throw a syntax error if used outside an `async` function, unless in modules or top-level environments that support top-level `await`.
-
-### 6. **What happens when an async function throws an error?**
-
-If an error is thrown inside an async function or a promise is rejected, the returned promise is rejected and can be caught using `.catch()` or `try...catch` blocks.
-
-### 7. **Can an **\`\`** function return something other than a promise?**
-
+7. Can an `async` function return something other than a promise?
 No. An `async` function always returns a promise, even if the returned value is not explicitly a promise. For example, `return 5` becomes `Promise.resolve(5)`.
 
-### 8. **How do you handle multiple **\`\`** calls in parallel?**
-
+8. How do you handle multiple `await` calls in parallel?
 Use `Promise.all()` to run promises concurrently:
-
 ```js
 const [res1, res2] = await Promise.all([fetchData1(), fetchData2()]);
 ```
 
-### 9. **What is the event loop in JavaScript?**
-
+9. What is the event loop in JavaScript?
 The event loop is the mechanism that handles execution of multiple chunks of code, manages the call stack, microtasks (like promises), and macrotasks (like timeouts).
 
-### 10. **Where do async/await fit in the event loop?**
+10. Where do async/await fit in the event loop?
+`await` pauses the async function, and when the promise resolves, it is placed in the microtask queue, which runs before macrotasks.
 
-`await` pauses the async function, and when the promise resolves, it is placed in the microtask queue, which is executed before macrotasks.
-
-### 11. **Is **\`\`** blocking?**
-
+11. Is `await` blocking?
 Not globally. It only blocks the execution of the code inside the async function, not the entire program.
 
-### 12. **What are common mistakes with **\`\`**?**
+12. What are common mistakes with `async/await`?
+- Forgetting to use `await` with a promise.
+- Using `await` with non-promises.
+- Not handling errors using `try...catch`.
 
-* Forgetting to use `await` with a promise.
-* Using `await` with non-promises.
-* Not handling errors using `try...catch`.
-
-### 13. **How do you catch errors in **\`\`**?**
-
+13. How do you catch errors in `async/await`?
 Using `try...catch` block:
-
 ```js
 try {
   await riskyOperation();
@@ -68,36 +54,28 @@ try {
 }
 ```
 
-### 14. **How does **\`\`** compare with callbacks and promises?**
+14. How does `async/await` compare with callbacks and promises?
+`async/await` simplifies promise-based code and avoids callback hell. It offers a more synchronous way of writing asynchronous logic.
 
-`async/await` simplifies promise-based code and avoids callback hell. It provides a more synchronous way of writing asynchronous logic.
-
-### 15. **Can you nest **\`\`** calls?**
-
+15. Can you nest `await` calls?
 Yes, but it may lead to sequential execution. For better performance, use `Promise.all()` when possible.
 
-### 16. **What if I **\`\`** a non-promise value?**
+16. What if I `await` a non-promise value?
+JavaScript wraps non-promise values with `Promise.resolve()`, so it works normally.
 
-JavaScript automatically wraps non-promise values with `Promise.resolve()`, so it works normally.
-
-### 17. **Does **\`\`** make code truly asynchronous?**
-
+17. Does `async/await` make code truly asynchronous?
 No, it just allows asynchronous operations to be written in a synchronous style. True async behavior comes from non-blocking APIs.
 
-### 18. **Can I use **\`\`** on arrow functions?**
-
+18. Can I use `async` on arrow functions?
 Yes:
-
 ```js
 const fetchData = async () => {
   // logic
 };
 ```
 
-### 19. **What is top-level await?**
+19. What is top-level await?
+In ES modules or modern environments, `await` can be used at the top level without wrapping it in an async function.
 
-In ES modules or modern environments, `await` can be used at the top level without wrapping inside an async function.
-
-### 20. **Why is **\`\`** considered syntactic sugar?**
-
+20. Why is `async/await` considered syntactic sugar?
 Because it doesn’t introduce new functionality — it simplifies writing promise-based logic, which could otherwise be written with `.then()` and `.catch()`.
