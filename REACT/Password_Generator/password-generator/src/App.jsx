@@ -40,7 +40,7 @@ function App() {
 
 
   const copyToClipboard = useCallback(() => {
-    passwordRef.current?.select()
+    passwordRef.current?.select() //to shown on UI that something has selected
     // passwordRef.current?.setSelectionRange(0,3) //if we want some particular range to be selected
     window.navigator.clipboard.writeText(password)
 
