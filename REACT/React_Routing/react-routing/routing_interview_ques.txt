@@ -1,0 +1,100 @@
+                📘 React Router Interview Questions & Answers
+                        🟢 Beginner Level
+
+1. What is React Router?
+Answer: React Router is a standard library for routing in React. It enables navigation among views of various components in a React Application, using URL changes without refreshing the page.
+
+2. Why do we need routing in a React application?
+Answer: Routing allows you to render different components or pages based on the URL, enabling the creation of Single Page Applications (SPA) with multiple views.
+
+3. What are the main components provided by React Router DOM (v6)?
+Answer:
+
+BrowserRouter
+
+Routes
+
+Route
+
+Link
+
+NavLink
+
+useNavigate, useParams, useLocation, useRoutes
+
+4. What is the difference between BrowserRouter and HashRouter?
+Answer:
+
+BrowserRouter uses the HTML5 history API to keep the UI in sync with the URL.
+
+HashRouter uses the hash portion (#) of the URL (e.g., /home#about) to manage routing.
+
+Use BrowserRouter when server configuration supports it; otherwise, use HashRouter.
+
+5. How do you create a route in React Router v6?
+Answer:
+
+
+<Routes>
+  <Route path="/about" element={<About />} />
+</Routes>
+
+-----------------------------------------------------------------------------------
+                            🟡 Intermediate Level
+
+6. How do you navigate programmatically in React Router?
+Answer: Using the useNavigate() hook.
+
+const navigate = useNavigate();
+navigate('/contact');
+
+7. What is a dynamic route and how do you define one?
+Answer: A dynamic route uses parameters in the URL:
+<Route path="/user/:id" element={<User />} />
+You can access id using the useParams() hook.
+
+8. What is NavLink and how is it different from Link?
+Answer:
+NavLink is similar to Link but provides styling attributes based on the active route.
+
+9. What happens if no route matches in React Router?
+Answer: You can use a wildcard path to handle 404 pages:
+<Route path="*" element={<NotFound />} />
+
+
+10. How can we nest routes in React Router v6?
+Answer: Define child routes inside a parent route using the children property.
+
+------------------------------------------------------------------------------------------
+                                    🔴 Advanced Level
+
+11. What is the createBrowserRouter and RouterProvider used for?
+Answer:
+createBrowserRouter() creates a router with a route configuration object.
+RouterProvider provides this router to your app.
+Used mostly in React Router v6.4+ with data APIs like loaders and actions.
+
+12. What is route-based code splitting and how do you achieve it?
+Answer: It's loading routes lazily only when needed, improving performance.
+Use React.lazy and Suspense:
+
+const About = React.lazy(() => import('./About'));
+
+13. What is useLocation() used for?
+Answer:
+It returns the current location object, which contains information like pathname, search, and hash.
+
+14. How do you protect routes in React Router (authentication)?
+Answer:
+Use a wrapper component (e.g., PrivateRoute) that checks authentication before rendering a route.
+
+15. Can you fetch data before a route renders in React Router v6.4+?
+Answer:
+Yes, using Loaders in the route configuration with createBrowserRouter.
+{
+  path: "/dashboard",
+  element: <Dashboard />,
+  loader: async () => {
+    return fetch('/api/data');
+  }
+}
