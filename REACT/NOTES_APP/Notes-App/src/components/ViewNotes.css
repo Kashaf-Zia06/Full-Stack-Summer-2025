@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+    background-color: rgb(223 223 223);
+}
+
+#search-inp {
+    border-radius: 8px;
+    width: 300px;
+    height: 60px;
+    padding: 5px;
+
+}
+
+#search-inp::placeholder {
+    margin-left: 5px;
+}
+
+#title {
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: medium;
+}
+
+
+
+.opt-btn {
+    background-color: gray;
+    border-radius: 5px;
+    padding: 5px;
+
+
+}
+
+.opt-btn:hover {
+    background-color: gainsboro;
+    cursor: pointer;
+}

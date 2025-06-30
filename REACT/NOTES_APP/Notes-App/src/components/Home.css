@@ -1,0 +1,46 @@
+textarea,input{
+    background-color: #00000017;
+
+    }
+
+textarea{
+    height: 250px;
+}
+
+.btn{
+    display: flex;
+    background-color: rgb(181, 177, 177);
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 150px;
+    font-size: small;
+    margin-top: 6px;
+    font-size: medium;
+    
+
+}
+
+.btn:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+
+#heading{
+    margin-top: 5px;
+}
+
+#body{
+    background-color: rgb(223 223 223);
+    margin-top: -145px;
+}
+
+@media (max-width:499px) {
+    .start{
+        position: relative;
+        margin-top: 120px;
+
+    }
+    
+}
+
