@@ -2,18 +2,27 @@ import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv"
 import connectDB from "./db/db.js";
+import { app } from "./app.js";
+
 
 dotenv.config()
 
-const app = express();
-app.use(express.json());
+const PORT=process.env.PORT
+
+
+app.get('/', (req, res) => {
+    console.log("Home request")
+  res.send('Server is alive!');
+});
+
+
 
 const startServer = (async () => {
     try {
 
-        await connectDB();
-        app.listen(process.env.PORT || 5000, () => {
-            console.log("Server is up")
+        let resp=await connectDB();
+        app.listen(PORT, () => {
+            console.log(`Server is up on port : ${PORT} `)
         })
 
     }
